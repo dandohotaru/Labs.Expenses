@@ -1,0 +1,31 @@
+Stories:
+
+* Support for both Professional and Personal accounts
+
+Policies
+* AddPolicy (1)
+* Rename Policy (1)
+* Modify Policy (1)
+* Remove Policy
+* Share Policy
+
+Expenses 
+* Add Expense (1)
+* Modify Expense (1)
+* Remove Expense
+* Search Expenses by date range (1)
+* Search Expenses by amount range
+* Search expenses by tags
+* Search expenses by merchant
+
+Merchants
+* Add Merchant
+* Mofify Merchant
+* Remove Merchant
+* Search Merchant By Name
+
+Tags
+* Add Tag
+* Remove Tag
+* Modify Tag
+* Search Tags By Name
