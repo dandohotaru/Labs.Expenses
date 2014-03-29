@@ -1,31 +1,57 @@
 Stories:
 
-* Support for both Professional and Personal accounts
+* Support for both Professional and Personal accounts via policies
 
-Policies
-* AddPolicy (1)
-* Rename Policy (1)
-* Modify Policy (1)
-* Remove Policy
-* Share Policy
+Write
 
-Expenses 
-* Add Expense (1)
-* Modify Expense (1)
-* Remove Expense
-* Search Expenses by date range (1)
-* Search Expenses by amount range
-* Search expenses by tags
-* Search expenses by merchant
+	Users
+	* Register User (1.0)
+	* Login User (1.0)
+	* Change Password (1.0)
 
-Merchants
-* Add Merchant
-* Mofify Merchant
-* Remove Merchant
-* Search Merchant By Name
+	Expenses 
+	* Add Expense (0.9)
+	* Modify Expense (0.9)
+	* Remove Expense (1.4)
+	* Tag Expense (0.9)
 
-Tags
-* Add Tag
-* Remove Tag
-* Modify Tag
-* Search Tags By Name
+	Policies
+	* AddPolicy (0.9)
+	* Rename Policy (1.3)
+	* Modify Policy (1.3)
+	* Remove Policy (1.3)
+	* Share Policy (2.0)
+
+	Merchants
+	* Add Merchant (0.9)
+	* Mofify Merchant (1.2)
+	* Remove Merchant (1.2)
+
+	Tags
+	* Add Tag (0.9)
+	* Remove Tag (1.2)
+	* Modify Tag (1.2)
+	* Merge Tags (2.0)
+
+
+
+Read
+	Users
+	* Search Users By Name
+
+	Expenses 
+	* Search Expenses by date range (0.9)
+	* Search Expenses by amount range (2.0)
+	* Search expenses by tags (1.5)
+	* Search expenses by merchant (2.0)
+
+	Policies
+	* Search Policy (0.9)
+
+	Merchants
+	* Search Merchant By Name (0.9)
+
+	Tags
+	* Search Tags By Name (0.9)
+
+
