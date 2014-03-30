@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using Labs.Expenses.Data.Write.Mappings;
 using Labs.Expenses.Domain.Common;
 using Labs.Expenses.Domain.Entities;
 
@@ -15,7 +16,7 @@ namespace Labs.Expenses.Data.Write
         }
 
         public WriteContext()
-            : base("Name=SqlContext")
+            : base("SqlContext")
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;
@@ -74,6 +75,14 @@ namespace Labs.Expenses.Data.Write
         public void Save()
         {
             SaveChanges();
+        }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Configurations.Add(new ExpenseMap());
+            modelBuilder.Configurations.Add(new MerchantMap());
+            modelBuilder.Configurations.Add(new PolicyMap());
+            modelBuilder.Configurations.Add(new TagMap());
         }
     }
 }

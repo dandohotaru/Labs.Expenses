@@ -22,5 +22,7 @@ namespace Labs.Expenses.Domain.Common
         public Guid Id { get; protected set; }
 
         public Guid TenantId { get; protected set; }
+
+        public byte[] Version { get; set; }
     }
 }

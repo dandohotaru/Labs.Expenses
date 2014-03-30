@@ -1,0 +1,3 @@
+﻿Add-Migration -StartUpProjectName Labs.Expenses.Data InitialSetup -Verbose
+Update-Database -StartUpProjectName Labs.Expenses.Data -Verbose
+
