@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Labs.Expenses.Domain.Common
 {
-    public interface IDataContext
+    public interface IWriter : IDisposable
     {
         IQueryable<TEntity> Query<TEntity>() where TEntity : class, IEntity;
 
@@ -16,7 +17,5 @@ namespace Labs.Expenses.Domain.Common
         void Remove<TEntity>(IEnumerable<TEntity> entities) where TEntity : class, IEntity;
 
         void Save();
-
-        void Clear();
     }
 }

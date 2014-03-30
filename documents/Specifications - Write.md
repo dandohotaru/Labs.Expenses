@@ -1,10 +1,8 @@
-## Stories: ##
-*Support for both Professional and Personal accounts via policies*
+#### Stories: ####
 
-
-### Core ### 
+##### *Core* #####
 	
-	- Expenses
+	- Payments
 		- (0.9) Add Expense
 		- (0.9) Modify Expense 
 		- (1.4) Remove Expense 
@@ -12,7 +10,7 @@
 		
 	- Policies
 		- (0.9) Add Policy 
-		- (1.3) Rename Policy 
+		- (0.9) Rename Policy 
 		- (1.3) Modify Policy 
 		- (1.3) Remove Policy 
 		- (2.0) Share Policy 
@@ -24,11 +22,11 @@
 
 	- Tags
 		- (0.9) Add Tag 
-		- (1.2) Remove Tag 
-		- (1.2) Modify Tag 
+		- (0.9) Remove Tag 
+		- (0.9) Modify Tag 
 		- (2.0) Merge Tags 
 
-### Security ###
+##### *Security* #####
 
 	- Accounts
 		- (1.0) Register User 

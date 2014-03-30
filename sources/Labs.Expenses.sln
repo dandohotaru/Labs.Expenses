@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labs.Expenses.Domain", "Lab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labs.Expenses.Data", "Labs.Expenses.Data\Labs.Expenses.Data.csproj", "{68414A61-F46B-44D6-8643-B8E633B5A337}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labs.Expenses.Tests.Int", "Labs.Expenses.Tests.Int\Labs.Expenses.Tests.Int.csproj", "{1EE07A90-20C0-4A43-BB61-3E1A36E06B96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{68414A61-F46B-44D6-8643-B8E633B5A337}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68414A61-F46B-44D6-8643-B8E633B5A337}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68414A61-F46B-44D6-8643-B8E633B5A337}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EE07A90-20C0-4A43-BB61-3E1A36E06B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EE07A90-20C0-4A43-BB61-3E1A36E06B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EE07A90-20C0-4A43-BB61-3E1A36E06B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EE07A90-20C0-4A43-BB61-3E1A36E06B96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

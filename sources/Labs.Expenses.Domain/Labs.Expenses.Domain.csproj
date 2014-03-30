@@ -46,21 +46,38 @@
     <Compile Include="..\versioning\SolutionInfo.cs">
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
+    <Compile Include="Commands\AddMerchantCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Commands\AddPolicyCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Commands\RemoveExpenseCommand.cs" />
     <Compile Include="Commands\ModifyExpenseCommand.cs" />
+    <Compile Include="Commands\RenameMerchantCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Commands\RenamePolicyCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Commands\TagExpenseCommand.cs" />
     <Compile Include="Commands\AddExpenseCommand.cs" />
     <Compile Include="Common\Command.cs" />
     <Compile Include="Common\Entity.cs" />
     <Compile Include="Common\ICommand.cs" />
-    <Compile Include="Common\IDataContext.cs" />
+    <Compile Include="Common\ITenant.cs" />
+    <Compile Include="Common\IWriter.cs" />
     <Compile Include="Common\IEntity.cs" />
     <Compile Include="Common\IEvent.cs" />
     <Compile Include="Common\IMessage.cs" />
     <Compile Include="Entities\Expense.cs" />
     <Compile Include="Entities\Merchant.cs" />
+    <Compile Include="Entities\Policy.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Entities\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemTenant.cs" />
     <Compile Include="Values\SystemTime.cs" />
   </ItemGroup>
   <ItemGroup />

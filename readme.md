@@ -1,6 +1,11 @@
-This is a sample Expenses application that should follow some ideas
-* Fast to market
-* Agile approach
-* Cqrs
-* Ddd (?)
+#### *Expenses* ####
+
+Fooling around with an Expenses application that should follow at least these principles
+
+	- Fast to market (Q2)
+	- Agile approach
+	- Task based UI
+	- Cqrs
+	- ES (?)
+	- Ddd (?)
 

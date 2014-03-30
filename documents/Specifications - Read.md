@@ -1,10 +1,8 @@
-## Stories: ##
+#### Stories: ####
 
-### Core ###
-	- Accounts
-		- (3.0) Search Users By Name 
+##### *Core* #####
 
-	- Expenses 
+	- Payments 
 		- (0.9) Search Expenses by date range 
 		- (2.0) Search Expenses by amount range 
 		- (1.5) Search expenses by tags 
@@ -19,7 +17,7 @@
 	- Tags
 		- (0.9) Search Tags By Name
 
-### Security ###
+##### *Security* #####
 	- Accounts
 		- (3.0) Search Users By Name 
 	

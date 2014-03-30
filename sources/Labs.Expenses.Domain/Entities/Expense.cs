@@ -6,6 +6,10 @@ namespace Labs.Expenses.Domain.Entities
 {
     public class Expense : Entity
     {
+        protected Expense()
+        {
+        }
+
         public Expense(Guid id, Guid tenantId)
             : base(id, tenantId)
         {

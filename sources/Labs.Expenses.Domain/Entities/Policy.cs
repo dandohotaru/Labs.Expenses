@@ -3,13 +3,13 @@ using Labs.Expenses.Domain.Common;
 
 namespace Labs.Expenses.Domain.Entities
 {
-    public class Tag : Entity
+    public class Policy : Entity
     {
-        protected Tag()
+        protected Policy()
         {
         }
 
-        public Tag(Guid id, Guid tenantId) 
+        public Policy(Guid id, Guid tenantId) 
             : base(id, tenantId)
         {
         }
