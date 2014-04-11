@@ -6,14 +6,14 @@ using Labs.Expenses.Data.Write.Mappings;
 using Labs.Expenses.Domain.Common;
 using Labs.Expenses.Domain.Entities;
 
-namespace Labs.Expenses.Data.Write
+namespace Labs.Expenses.Data.Write.Contexts
 {
     public class WriteContext : DbContext, IWriter
     {
-        static WriteContext()
-        {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<WriteContext>());
-        }
+        //static WriteContext()
+        //{
+        //    Database.SetInitializer(new CreateDatabaseIfNotExists<WriteContext>());
+        //}
 
         public WriteContext()
             : base("SqlContext")

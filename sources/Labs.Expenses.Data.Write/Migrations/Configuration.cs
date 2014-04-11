@@ -1,4 +1,5 @@
 using System.Data.Entity.Migrations;
+using Labs.Expenses.Data.Write.Contexts;
 
 namespace Labs.Expenses.Data.Write.Migrations
 {
@@ -7,7 +8,6 @@ namespace Labs.Expenses.Data.Write.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            MigrationsDirectory = @"Write\Migrations";
         }
 
         protected override void Seed(WriteContext context)

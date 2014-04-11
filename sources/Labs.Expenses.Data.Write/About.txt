@@ -1,0 +1,6 @@
+﻿http://coding.abel.nu/2012/03/ef-migrations-command-reference/
+
+Enable-Migrations -ProjectName Labs.Expenses.Data -force -verbose
+Add-Migration -Name InitialSetup -StartUpProjectName Labs.Expenses.Data -ConfigurationTypeName WriteConfiguration -Verbose
+Update-Database -StartUpProjectName Labs.Expenses.Data -Verbose
+

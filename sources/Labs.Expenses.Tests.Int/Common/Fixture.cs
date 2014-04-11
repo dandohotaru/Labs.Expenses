@@ -1,5 +1,6 @@
 ﻿using System;
 using Labs.Expenses.Data.Write;
+using Labs.Expenses.Data.Write.Contexts;
 using Labs.Expenses.Domain;
 using Labs.Expenses.Domain.Common;
 using Ninject;

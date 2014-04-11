@@ -13,7 +13,7 @@ namespace Labs.Expenses.Data.Write.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201403302152214_InitialSetup"; }
+            get { return "201404102346021_InitialSetup"; }
         }
         
         string IMigrationMetadata.Source
