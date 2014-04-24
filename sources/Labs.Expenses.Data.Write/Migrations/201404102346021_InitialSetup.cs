@@ -1,6 +1,6 @@
 using System.Data.Entity.Migrations;
 
-namespace Labs.Expenses.Data.Write.Migrations
+namespace Labs.Expenses.W.Data.Migrations
 {
     public partial class InitialSetup : DbMigration
     {

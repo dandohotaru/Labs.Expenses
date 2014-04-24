@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Labs.Expenses.Domain.Common
+namespace Labs.Expenses.W.Domain.Common
 {
     public interface IWriter : IDisposable
     {

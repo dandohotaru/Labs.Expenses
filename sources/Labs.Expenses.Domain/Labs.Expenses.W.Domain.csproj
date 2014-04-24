@@ -7,8 +7,8 @@
     <ProjectGuid>{E3AE7F30-C597-403B-9675-F4FD5DAF38E1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Labs.Expenses.Domain</RootNamespace>
-    <AssemblyName>Labs.Expenses.Domain</AssemblyName>
+    <RootNamespace>Labs.Expenses.W.Domain</RootNamespace>
+    <AssemblyName>Labs.Expenses.W.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

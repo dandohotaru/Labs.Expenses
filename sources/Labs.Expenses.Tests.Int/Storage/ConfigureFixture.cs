@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
-using Labs.Expenses.Domain.Common;
-using Labs.Expenses.Domain.Entities;
-using Labs.Expenses.Tests.Int.Common;
+using Labs.Expenses.W.Domain.Common;
+using Labs.Expenses.W.Domain.Entities;
+using Labs.Expenses.W.Tests.Common;
 using Ninject;
 using NUnit.Framework;
 
-namespace Labs.Expenses.Tests.Int.Storage
+namespace Labs.Expenses.W.Tests.Storage
 {
     [TestFixture]
     public class ConfigureFixture : Fixture

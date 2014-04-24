@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Labs.Expenses.Domain.Values;
+using Labs.Expenses.W.Domain.Values;
 
-namespace Labs.Expenses.Domain.Common
+namespace Labs.Expenses.W.Domain.Common
 {
     public abstract class Command : ICommand
     {

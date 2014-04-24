@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
-using Labs.Expenses.Domain.Entities;
+using Labs.Expenses.W.Domain.Entities;
 
-namespace Labs.Expenses.Data.Write.Mappings
+namespace Labs.Expenses.W.Data.Mappings
 {
     public class MerchantMap : EntityTypeConfiguration<Merchant>
     {

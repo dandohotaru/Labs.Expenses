@@ -1,7 +1,7 @@
 using System.Data.Entity.Migrations;
-using Labs.Expenses.Data.Write.Contexts;
+using Labs.Expenses.W.Data.Contexts;
 
-namespace Labs.Expenses.Data.Write.Migrations
+namespace Labs.Expenses.W.Data.Migrations
 {
     internal sealed class Configuration : DbMigrationsConfiguration<WriteContext>
     {

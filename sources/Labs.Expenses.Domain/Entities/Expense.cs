@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Labs.Expenses.Domain.Common;
+using Labs.Expenses.W.Domain.Common;
 
-namespace Labs.Expenses.Domain.Entities
+namespace Labs.Expenses.W.Domain.Entities
 {
     public class Expense : Entity
     {

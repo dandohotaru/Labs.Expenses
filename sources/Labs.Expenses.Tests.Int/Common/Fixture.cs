@@ -1,12 +1,11 @@
 ﻿using System;
-using Labs.Expenses.Data.Write;
-using Labs.Expenses.Data.Write.Contexts;
-using Labs.Expenses.Domain;
-using Labs.Expenses.Domain.Common;
+using Labs.Expenses.W.Data.Contexts;
+using Labs.Expenses.W.Domain;
+using Labs.Expenses.W.Domain.Common;
 using Ninject;
 using NUnit.Framework;
 
-namespace Labs.Expenses.Tests.Int.Common
+namespace Labs.Expenses.W.Tests.Common
 {
     [TestFixture]
     public abstract class Fixture

@@ -1,7 +1,7 @@
 ﻿using System;
-using Labs.Expenses.Domain.Common;
+using Labs.Expenses.W.Domain.Common;
 
-namespace Labs.Expenses.Domain
+namespace Labs.Expenses.W.Domain
 {
     public class SystemTenant : ITenant
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Labs.Expenses.Domain.Values
+namespace Labs.Expenses.W.Domain.Values
 {
     public static class SystemTime
     {

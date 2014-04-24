@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Labs.Expenses.Domain.Common
+namespace Labs.Expenses.W.Domain.Common
 {
     public interface IEvent : IMessage
     {

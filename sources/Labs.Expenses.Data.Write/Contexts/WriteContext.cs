@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Labs.Expenses.Data.Write.Mappings;
-using Labs.Expenses.Domain.Common;
-using Labs.Expenses.Domain.Entities;
+using Labs.Expenses.W.Data.Mappings;
+using Labs.Expenses.W.Domain.Common;
+using Labs.Expenses.W.Domain.Entities;
 
-namespace Labs.Expenses.Data.Write.Contexts
+namespace Labs.Expenses.W.Data.Contexts
 {
     public class WriteContext : DbContext, IWriter
     {
-        //static WriteContext()
-        //{
-        //    Database.SetInitializer(new CreateDatabaseIfNotExists<WriteContext>());
-        //}
+        static WriteContext()
+        {
+            Database.SetInitializer(new CreateDatabaseIfNotExists<WriteContext>());
+        }
 
         public WriteContext()
             : base("SqlContext")
