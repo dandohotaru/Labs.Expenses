@@ -1,7 +1,8 @@
 ﻿using System;
 using Labs.Expenses.W.Data.Contexts;
-using Labs.Expenses.W.Domain;
+using Labs.Expenses.W.Domain.Adapters;
 using Labs.Expenses.W.Domain.Common;
+using Labs.Expenses.W.Domain.Values;
 using Ninject;
 using NUnit.Framework;
 
@@ -17,7 +18,8 @@ namespace Labs.Expenses.W.Tests.Common
         {
             var kernel = new StandardKernel();
             kernel.Bind<ITenant>().To<SystemTenant>();
-            kernel.Bind<Func<IWriter>>().ToMethod(context => (() => new WriteContext()));
+            kernel.Bind<IPolicy>().To<SystemPolicy>();
+            kernel.Bind<Func<IDataContext>>().ToMethod(context => (() => new SqlContext()));
 
             Locator = kernel;
         }

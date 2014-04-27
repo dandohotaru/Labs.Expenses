@@ -2,20 +2,22 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using Labs.Expenses.W.Data.Conventions;
 using Labs.Expenses.W.Data.Mappings;
+using Labs.Expenses.W.Domain.Adapters;
 using Labs.Expenses.W.Domain.Common;
 using Labs.Expenses.W.Domain.Entities;
 
 namespace Labs.Expenses.W.Data.Contexts
 {
-    public class WriteContext : DbContext, IWriter
+    public class SqlContext : DbContext, IDataContext
     {
-        static WriteContext()
+        static SqlContext()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<WriteContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<SqlContext>());
         }
 
-        public WriteContext()
+        public SqlContext()
             : base("SqlContext")
         {
             Configuration.LazyLoadingEnabled = false;
@@ -83,6 +85,8 @@ namespace Labs.Expenses.W.Data.Contexts
             modelBuilder.Configurations.Add(new MerchantMap());
             modelBuilder.Configurations.Add(new PolicyMap());
             modelBuilder.Configurations.Add(new TagMap());
+
+            modelBuilder.Conventions.Add(new EntityConventions());
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Labs.Expenses.W.Domain.Commands
     public class AddMerchantCommand : Command
     {
         public AddMerchantCommand(Guid commandId, Guid tenantId)
-            : base(commandId, tenantId)
+            : base(tenantId, commandId)
         {
         }
 

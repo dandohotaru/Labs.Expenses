@@ -7,7 +7,7 @@ namespace Labs.Expenses.W.Domain.Commands
     public class RenameMerchantCommand : Command
     {
         public RenameMerchantCommand(Guid commandId, Guid tenantId)
-            : base(commandId, tenantId)
+            : base(tenantId, commandId)
         {
         }
 

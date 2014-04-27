@@ -65,19 +65,25 @@
     <Compile Include="Common\Command.cs" />
     <Compile Include="Common\Entity.cs" />
     <Compile Include="Common\ICommand.cs" />
+    <Compile Include="Common\IHandler.cs" />
+    <Compile Include="Common\IResult.cs" />
+    <Compile Include="Common\IPolicy.cs" />
     <Compile Include="Common\ITenant.cs" />
-    <Compile Include="Common\IWriter.cs" />
+    <Compile Include="Adapters\IDataContext.cs" />
     <Compile Include="Common\IEntity.cs" />
     <Compile Include="Common\IEvent.cs" />
     <Compile Include="Common\IMessage.cs" />
+    <Compile Include="Common\Result.cs" />
     <Compile Include="Entities\Expense.cs" />
     <Compile Include="Entities\Merchant.cs" />
     <Compile Include="Entities\Policy.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entities\Tag.cs" />
+    <Compile Include="Handlers\AddExpenseHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SystemTenant.cs" />
+    <Compile Include="Values\SystemPolicy.cs" />
+    <Compile Include="Values\SystemTenant.cs" />
     <Compile Include="Values\SystemTime.cs" />
   </ItemGroup>
   <ItemGroup />

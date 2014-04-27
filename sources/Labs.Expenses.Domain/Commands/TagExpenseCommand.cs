@@ -8,7 +8,7 @@ namespace Labs.Expenses.W.Domain.Commands
     public class TagExpenseCommand : Command
     {
         public TagExpenseCommand(Guid commandId, Guid tenantId)
-            : base(commandId, tenantId)
+            : base(tenantId, commandId)
         {
         }
 

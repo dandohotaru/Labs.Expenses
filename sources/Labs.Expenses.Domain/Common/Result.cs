@@ -4,14 +4,14 @@ using Labs.Expenses.W.Domain.Values;
 
 namespace Labs.Expenses.W.Domain.Common
 {
-    public abstract class Command : ICommand
+    public abstract class Result : IResult
     {
-        private Command()
+        private Result()
         {
             Timestamp = SystemTime.Now();
         }
 
-        protected Command(Guid tenantId, Guid commandId)
+        protected Result(Guid tenantId, Guid commandId)
             : this()
         {
             if (commandId == default(Guid))
@@ -23,7 +23,7 @@ namespace Labs.Expenses.W.Domain.Common
             TenantId = tenantId;
         }
 
-        protected Command(Guid commandId)
+        protected Result(Guid commandId)
             : this(SystemTenant.Current().Id, commandId)
         {
             // ToDo: Remove constructor once the system supports multiple tenants [DanD].

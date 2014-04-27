@@ -3,14 +3,14 @@ using Labs.Expenses.W.Data.Contexts;
 
 namespace Labs.Expenses.W.Data.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<WriteContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SqlContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(WriteContext context)
+        protected override void Seed(SqlContext context)
         {
             //  This method will be called after migrating to the latest version.
 

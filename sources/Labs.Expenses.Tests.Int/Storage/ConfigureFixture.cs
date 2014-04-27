@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Labs.Expenses.W.Domain.Adapters;
 using Labs.Expenses.W.Domain.Common;
 using Labs.Expenses.W.Domain.Entities;
 using Labs.Expenses.W.Tests.Common;
@@ -16,7 +17,7 @@ namespace Labs.Expenses.W.Tests.Storage
         {
             // Given
             var tenant = Locator.Get<ITenant>();
-            var builder = Locator.Get<Func<IWriter>>();
+            var builder = Locator.Get<Func<IDataContext>>();
             using (var context = builder())
             {
                 var tagId = Guid.NewGuid();

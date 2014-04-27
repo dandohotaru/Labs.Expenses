@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Labs.Expenses.W.Domain.Common;
 
-namespace Labs.Expenses.W.Domain.Common
+namespace Labs.Expenses.W.Domain.Adapters
 {
-    public interface IWriter : IDisposable
+    public interface IDataContext : IDisposable
     {
         IQueryable<TEntity> Query<TEntity>() where TEntity : class, IEntity;
 

@@ -7,7 +7,7 @@ namespace Labs.Expenses.W.Domain.Commands
     public class ModifyExpenseCommand : Command
     {
         public ModifyExpenseCommand(Guid commandId, Guid tenantId)
-            : base(commandId, tenantId)
+            : base(tenantId, commandId)
         {
         }
 

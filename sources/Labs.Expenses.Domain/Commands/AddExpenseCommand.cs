@@ -6,8 +6,8 @@ namespace Labs.Expenses.W.Domain.Commands
 {
     public class AddExpenseCommand : Command
     {
-        public AddExpenseCommand(Guid commandId, Guid tenantId)
-            : base(commandId, tenantId)
+        public AddExpenseCommand(Guid commandId)
+            : base(commandId)
         {
         }
 
@@ -26,5 +26,13 @@ namespace Labs.Expenses.W.Domain.Commands
         public decimal? Amount { get; set; }
 
         public decimal? Vat { get; set; }
+    }
+
+    public class AddExpenseResult : Result
+    {
+        public AddExpenseResult(Guid commandId) 
+            : base(commandId)
+        {
+        }
     }
 }
