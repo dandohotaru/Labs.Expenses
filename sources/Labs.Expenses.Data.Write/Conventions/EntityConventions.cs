@@ -8,6 +8,8 @@ namespace Labs.Expenses.W.Data.Conventions
     {
         public EntityConventions()
         {
+            //Types().Configure(p => p.ToTable(p.ClrType.Name, "expenses"));
+
             Properties<Guid>()
                 .Where(p => p.Name == "Id")
                 .Configure(p =>
@@ -23,7 +25,11 @@ namespace Labs.Expenses.W.Data.Conventions
 
             Properties<byte[]>()
                 .Where(p => p.Name == "Version")
-                .Configure(p => p.IsConcurrencyToken());
+                .Configure(p =>
+                {
+                    p.IsRowVersion();
+                    p.IsConcurrencyToken(true);
+                });
 
             Properties()
                 .Configure(p => p.HasColumnName(p.ClrPropertyInfo.Name));

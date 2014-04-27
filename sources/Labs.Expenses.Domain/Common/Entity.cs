@@ -2,26 +2,12 @@
 
 namespace Labs.Expenses.W.Domain.Common
 {
-    public abstract class Entity : IEntity, IEntityWithId, IEntityWithTenantId
+    public abstract class Entity
+        : IEntity, IEntityWithId, IEntityWithTenantId
     {
-        protected Entity()
-        {
-        }
+        public Guid Id { get; set; }
 
-        protected Entity(Guid id, Guid tenantId)
-        {
-            if (id == default(Guid))
-                throw new ArgumentException("id");
-            if (tenantId == default(Guid))
-                throw new ArgumentException("tenantId");
-
-            Id = id;
-            TenantId = tenantId;
-        }
-
-        public Guid Id { get; protected set; }
-
-        public Guid TenantId { get; protected set; }
+        public Guid TenantId { get; set; }
 
         public byte[] Version { get; set; }
     }

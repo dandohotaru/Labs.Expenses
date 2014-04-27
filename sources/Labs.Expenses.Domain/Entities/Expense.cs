@@ -6,15 +6,6 @@ namespace Labs.Expenses.W.Domain.Entities
 {
     public class Expense : Entity
     {
-        protected Expense()
-        {
-        }
-
-        public Expense(Guid id, Guid tenantId)
-            : base(id, tenantId)
-        {
-        }
-
         public Guid PolicyId { get; set; }
 
         public ICollection<Tag> Tags { get; set; }
@@ -27,6 +18,6 @@ namespace Labs.Expenses.W.Domain.Entities
 
         public decimal Amount { get; set; }
 
-        public decimal Vat { get; set; }
+        public decimal? Vat { get; set; }
     }
 }

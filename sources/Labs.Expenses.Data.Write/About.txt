@@ -4,3 +4,12 @@ Enable-Migrations -ProjectName Labs.Expenses.W.Data -force -verbose
 Add-Migration -Name InitialSetup -StartUpProjectName Labs.Expenses.W.Data -ConfigurationTypeName WriteConfiguration -Verbose
 Update-Database -StartUpProjectName Labs.Expenses.W.Data -Verbose
 
+
+
+cleanup
+drop table [expenses].[ExpenseTag]
+drop table [expenses].[Expense]
+drop table [expenses].[Tag]
+drop table [expenses].[Merchant]
+drop table [expenses].[Policy]
+

@@ -23,12 +23,6 @@ namespace Labs.Expenses.W.Domain.Common
             TenantId = tenantId;
         }
 
-        protected Command(Guid commandId)
-            : this(SystemTenant.Current().Id, commandId)
-        {
-            // ToDo: Remove constructor once the system supports multiple tenants [DanD].
-        }
-
         [Required]
         public Guid CommandId { get; protected set; }
 

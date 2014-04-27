@@ -6,8 +6,8 @@ namespace Labs.Expenses.W.Domain.Commands
 {
     public class AddExpenseCommand : Command
     {
-        public AddExpenseCommand(Guid commandId)
-            : base(commandId)
+        public AddExpenseCommand(Guid tenantId, Guid commandId)
+            : base(tenantId, commandId)
         {
         }
 
@@ -30,8 +30,8 @@ namespace Labs.Expenses.W.Domain.Commands
 
     public class AddExpenseResult : Result
     {
-        public AddExpenseResult(Guid commandId) 
-            : base(commandId)
+        public AddExpenseResult(Guid tenantId, Guid commandId) 
+            : base(tenantId, commandId)
         {
         }
     }

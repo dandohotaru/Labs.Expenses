@@ -7,13 +7,13 @@ namespace Labs.Expenses.W.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class InitialSetup : IMigrationMetadata
+    public sealed partial class TuningTheModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialSetup));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(TuningTheModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201404262343391_InitialSetup"; }
+            get { return "201404271333181_TuningTheModel"; }
         }
         
         string IMigrationMetadata.Source

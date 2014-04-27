@@ -9,6 +9,8 @@ namespace Labs.Expenses.W.Domain.Adapters
     {
         IQueryable<TEntity> Query<TEntity>() where TEntity : class, IEntity;
 
+        TEntity Find<TEntity>(Guid id) where TEntity : class, IEntityWithId;
+
         void Add<TEntity>(TEntity entity) where TEntity : class, IEntity;
 
         void Add<TEntity>(IEnumerable<TEntity> entities) where TEntity : class, IEntity;

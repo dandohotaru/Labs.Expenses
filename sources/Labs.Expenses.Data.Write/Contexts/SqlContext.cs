@@ -39,7 +39,7 @@ namespace Labs.Expenses.W.Data.Contexts
         }
 
         public TEntity Find<TEntity>(Guid id)
-            where TEntity : class, IEntity
+            where TEntity : class, IEntityWithId
         {
             return Set<TEntity>().Find(id);
         }
@@ -81,12 +81,12 @@ namespace Labs.Expenses.W.Data.Contexts
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Add(new EntityConventions());
+
             modelBuilder.Configurations.Add(new ExpenseMap());
             modelBuilder.Configurations.Add(new MerchantMap());
             modelBuilder.Configurations.Add(new PolicyMap());
             modelBuilder.Configurations.Add(new TagMap());
-
-            modelBuilder.Conventions.Add(new EntityConventions());
         }
     }
 }

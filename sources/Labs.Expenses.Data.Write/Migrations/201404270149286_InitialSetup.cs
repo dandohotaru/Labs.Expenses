@@ -17,7 +17,7 @@ namespace Labs.Expenses.W.Data.Migrations
                     Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
                     Vat = c.Decimal(nullable: false, precision: 18, scale: 2),
                     TenantId = c.Guid(nullable: false),
-                    Version = c.Binary(),
+                    Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                 })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("expenses.Merchant", t => t.MerchantId, cascadeDelete: true)
@@ -30,7 +30,7 @@ namespace Labs.Expenses.W.Data.Migrations
                     Id = c.Guid(nullable: false),
                     Name = c.String(),
                     TenantId = c.Guid(nullable: false),
-                    Version = c.Binary(),
+                    Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                 })
                 .PrimaryKey(t => t.Id);
 
@@ -41,7 +41,7 @@ namespace Labs.Expenses.W.Data.Migrations
                     Id = c.Guid(nullable: false),
                     Name = c.String(),
                     TenantId = c.Guid(nullable: false),
-                    Version = c.Binary(),
+                    Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                 })
                 .PrimaryKey(t => t.Id);
 
@@ -52,12 +52,12 @@ namespace Labs.Expenses.W.Data.Migrations
                     Id = c.Guid(nullable: false),
                     Name = c.String(),
                     TenantId = c.Guid(nullable: false),
-                    Version = c.Binary(),
+                    Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                 })
                 .PrimaryKey(t => t.Id);
 
             CreateTable(
-                "dbo.ExpenseTag",
+                "expenses.ExpenseTag",
                 c => new
                 {
                     ExpenseId = c.Guid(nullable: false),
@@ -72,13 +72,13 @@ namespace Labs.Expenses.W.Data.Migrations
 
         public override void Down()
         {
-            DropForeignKey("dbo.ExpenseTag", "TagId", "expenses.Tag");
-            DropForeignKey("dbo.ExpenseTag", "ExpenseId", "expenses.Expense");
+            DropForeignKey("expenses.ExpenseTag", "TagId", "expenses.Tag");
+            DropForeignKey("expenses.ExpenseTag", "ExpenseId", "expenses.Expense");
             DropForeignKey("expenses.Expense", "MerchantId", "expenses.Merchant");
-            DropIndex("dbo.ExpenseTag", new[] {"TagId"});
-            DropIndex("dbo.ExpenseTag", new[] {"ExpenseId"});
+            DropIndex("expenses.ExpenseTag", new[] {"TagId"});
+            DropIndex("expenses.ExpenseTag", new[] {"ExpenseId"});
             DropIndex("expenses.Expense", new[] {"MerchantId"});
-            DropTable("dbo.ExpenseTag");
+            DropTable("expenses.ExpenseTag");
             DropTable("expenses.Policy");
             DropTable("expenses.Tag");
             DropTable("expenses.Merchant");

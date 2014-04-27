@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Labs.Expenses.W.Domain.Adapters;
-using Labs.Expenses.W.Domain.Common;
 using Labs.Expenses.W.Domain.Entities;
+using Labs.Expenses.W.Domain.Values;
 using Labs.Expenses.W.Tests.Common;
 using Ninject;
 using NUnit.Framework;
@@ -16,12 +16,16 @@ namespace Labs.Expenses.W.Tests.Storage
         public void ShouldCreateDatabaseIfNotExisting()
         {
             // Given
-            var tenant = Locator.Get<ITenant>();
             var builder = Locator.Get<Func<IDataContext>>();
             using (var context = builder())
             {
                 var tagId = Guid.NewGuid();
-                var tag = new Tag(tagId, tenant.Id);
+                var tenantId = SystemTenant.Current().Id;
+                var tag = new Tag
+                {
+                    Id = tagId,
+                    TenantId = tenantId,
+                };
 
                 // When
                 context.Add(tag);

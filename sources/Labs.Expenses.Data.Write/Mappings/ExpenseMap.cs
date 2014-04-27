@@ -18,7 +18,7 @@ namespace Labs.Expenses.W.Data.Mappings
                 {
                     m.MapLeftKey("ExpenseId");
                     m.MapRightKey("TagId");
-                    m.ToTable("ExpenseTag");
+                    m.ToTable("ExpenseTag", "expenses");
                 });
         }
     }
