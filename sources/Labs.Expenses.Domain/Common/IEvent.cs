@@ -4,6 +4,10 @@ namespace Labs.Expenses.W.Domain.Common
 {
     public interface IEvent : IMessage
     {
-        DateTimeOffset Timestamp { get; }
+        Guid TenantId { get; set; }
+
+        Guid CorrelationId { get; set; }
+
+        DateTimeOffset Timestamp { get; set; }
     }
 }

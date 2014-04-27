@@ -74,6 +74,10 @@
     <Folder Include="Facades\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Labs.Expenses.Adapters\Labs.Expenses.Adapters.csproj">
+      <Project>{be5bb880-5f07-47ec-b90e-7540f845c2f4}</Project>
+      <Name>Labs.Expenses.Adapters</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Labs.Expenses.Data.Write\Labs.Expenses.W.Data.csproj">
       <Project>{f1159205-537c-44fa-ae11-586c281cb772}</Project>
       <Name>Labs.Expenses.W.Data</Name>

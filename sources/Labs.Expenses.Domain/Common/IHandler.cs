@@ -6,4 +6,10 @@
     {
         TResult Execute(TCommand command);
     }
+
+    public interface IHandler<in TCommand>
+        where TCommand : ICommand
+    {
+        void Execute(TCommand command);
+    }
 }

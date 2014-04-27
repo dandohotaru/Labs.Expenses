@@ -4,22 +4,29 @@ using Labs.Expenses.W.Domain.Adapters;
 using Labs.Expenses.W.Domain.Commands;
 using Labs.Expenses.W.Domain.Common;
 using Labs.Expenses.W.Domain.Entities;
+using Labs.Expenses.W.Domain.Events;
+using Labs.Expenses.W.Domain.Values;
 
 namespace Labs.Expenses.W.Domain.Handlers
 {
-    public class AddExpenseHandler : IHandler<AddExpenseCommand, AddExpenseResult>
+    public class AddExpenseHandler : IHandler<AddExpenseCommand>
     {
-        public AddExpenseHandler(IDataContext dataContext)
+        public AddExpenseHandler(IDataContext dataContext, IEventBus eventBus)
         {
             if (dataContext == null)
                 throw new ArgumentNullException("dataContext");
+            if (eventBus == null)
+                throw new ArgumentNullException("eventBus");
 
             DataContext = dataContext;
+            EventBus = eventBus;
         }
 
         protected IDataContext DataContext { get; private set; }
 
-        public AddExpenseResult Execute(AddExpenseCommand command)
+        protected IEventBus EventBus { get; private set; }
+
+        public void Execute(AddExpenseCommand command)
         {
             if (command.PurchaseDate == null)
                 throw new ArgumentException("command.PurchaseDate is required");
@@ -41,6 +48,7 @@ namespace Labs.Expenses.W.Domain.Handlers
                     TenantId = command.TenantId,
                     Name = command.Merchant,
                 };
+
                 DataContext.Add(merchant);
             }
 
@@ -57,7 +65,13 @@ namespace Labs.Expenses.W.Domain.Handlers
 
             DataContext.Add(expense);
 
-            return new AddExpenseResult(command.CommandId, command.TenantId);
+            var added = new ExpenseAddedEvent
+            {
+                TenantId = command.TenantId,
+                CorrelationId = command.CommandId,
+                Timestamp = SystemTime.Now(),
+            };
+            EventBus.Publish(added);
         }
     }
 }

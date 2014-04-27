@@ -1,4 +1,5 @@
 ﻿using System;
+using Labs.Expenses.Adapters.Queues;
 using Labs.Expenses.W.Data.Contexts;
 using Labs.Expenses.W.Domain.Adapters;
 using Labs.Expenses.W.Domain.Common;
@@ -20,6 +21,7 @@ namespace Labs.Expenses.W.Tests.Common
             kernel.Bind<ITenant>().To<SystemTenant>();
             kernel.Bind<IPolicy>().To<SystemPolicy>();
             kernel.Bind<Func<IDataContext>>().ToMethod(context => (() => new SqlContext()));
+            kernel.Bind<IEventBus>().To<MemoryEventBus>().InSingletonScope();
 
             Locator = kernel;
         }
@@ -39,5 +41,4 @@ namespace Labs.Expenses.W.Tests.Common
         {
         }
     }
-
 }

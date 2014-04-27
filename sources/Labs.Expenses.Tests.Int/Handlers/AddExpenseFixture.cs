@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 using Labs.Expenses.W.Domain.Adapters;
 using Labs.Expenses.W.Domain.Commands;
-using Labs.Expenses.W.Domain.Entities;
+using Labs.Expenses.W.Domain.Events;
 using Labs.Expenses.W.Domain.Handlers;
 using Labs.Expenses.W.Domain.Values;
 using Labs.Expenses.W.Tests.Common;
@@ -38,16 +33,18 @@ namespace Labs.Expenses.W.Tests.Handlers
             };
 
             // When
+            var expect = false;
+            var bus = Locator.Get<IEventBus>();
+            bus.Subscribe<ExpenseAddedEvent>(e => expect = true);
             var builder = Locator.Get<Func<IDataContext>>();
             using (var context = builder())
             {
-                var handler = new AddExpenseHandler(context);
+                var handler = new AddExpenseHandler(context, bus);
                 handler.Execute(command);
                 context.Save();
 
                 // Then
-                var expect = context.Find<Expense>(expenseId);
-                Assert.That(expect, Is.Not.Null);
+                Assert.That(expect, Is.True);
             }
         }
     }
