@@ -31,14 +31,14 @@ namespace Labs.Expenses.Adapters.Queues
             }
         }
 
-        public void Subscribe<TEvent>(Action<TEvent> handler)
+        public void Subscribe<TEvent>(Action<TEvent> action)
             where TEvent : IEvent
         {
             var eventType = typeof (TEvent);
             if (!Handlers.ContainsKey(eventType))
                 Handlers.Add(eventType, new List<Action<IEvent>>());
 
-            Handlers[eventType].Add(e => handler((TEvent) e));
+            Handlers[eventType].Add(e => action((TEvent) e));
         }
     }
 }

@@ -7,6 +7,6 @@ namespace Labs.Expenses.W.Domain.Adapters
     {
         void Publish<TEvent>(TEvent e) where TEvent : IEvent;
 
-        void Subscribe<TEvent>(Action<TEvent> handler) where TEvent : IEvent;
+        void Subscribe<TEvent>(Action<TEvent> action) where TEvent : IEvent;
     }
 }
