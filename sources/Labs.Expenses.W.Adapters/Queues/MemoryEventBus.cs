@@ -4,7 +4,7 @@ using System.Linq;
 using Labs.Expenses.W.Domain.Adapters;
 using Labs.Expenses.W.Domain.Common;
 
-namespace Labs.Expenses.Adapters.Queues
+namespace Labs.Expenses.W.Adapters.Queues
 {
     public class MemoryEventBus : IEventBus
     {

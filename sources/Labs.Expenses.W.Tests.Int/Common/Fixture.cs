@@ -1,9 +1,4 @@
-﻿using System;
-using Labs.Expenses.Adapters.Queues;
-using Labs.Expenses.W.Data.Contexts;
-using Labs.Expenses.W.Domain.Adapters;
-using Labs.Expenses.W.Domain.Common;
-using Labs.Expenses.W.Domain.Values;
+﻿using Labs.Expenses.W.Tests.Bootstrap;
 using Ninject;
 using NUnit.Framework;
 
@@ -17,13 +12,7 @@ namespace Labs.Expenses.W.Tests.Common
         [TestFixtureSetUp]
         public virtual void FixtureSetUp()
         {
-            var kernel = new StandardKernel();
-            kernel.Bind<ITenant>().To<SystemTenant>();
-            kernel.Bind<IPolicy>().To<SystemPolicy>();
-            kernel.Bind<Func<IDataContext>>().ToMethod(context => (() => new SqlContext()));
-            kernel.Bind<IEventBus>().To<MemoryEventBus>().InSingletonScope();
-
-            Locator = kernel;
+            Locator  = new StandardKernel(new ExpensesModule());
         }
 
         [SetUp]

@@ -11,20 +11,20 @@ namespace Labs.Expenses.W.Domain.Handlers
 {
     public class AddExpenseHandler : IHandler<AddExpenseCommand>
     {
-        public AddExpenseHandler(IDataContext dataContext, IEventBus eventBus)
+        public AddExpenseHandler(IDataContext context, IEventBus bus)
         {
-            if (dataContext == null)
-                throw new ArgumentNullException("dataContext");
-            if (eventBus == null)
-                throw new ArgumentNullException("eventBus");
+            if (context == null)
+                throw new ArgumentNullException("context");
+            if (bus == null)
+                throw new ArgumentNullException("bus");
 
-            DataContext = dataContext;
-            EventBus = eventBus;
+            Context = context;
+            Bus = bus;
         }
 
-        protected IDataContext DataContext { get; private set; }
+        protected IDataContext Context { get; private set; }
 
-        protected IEventBus EventBus { get; private set; }
+        protected IEventBus Bus { get; private set; }
 
         public void Execute(AddExpenseCommand command)
         {
@@ -33,11 +33,11 @@ namespace Labs.Expenses.W.Domain.Handlers
             if (command.Amount == null)
                 throw new ArgumentException("command.Amount is required");
 
-            var expense = DataContext.Find<Expense>(command.ExpenseId);
+            var expense = Context.Find<Expense>(command.ExpenseId);
             if (expense != null)
                 throw new Exception("The provided expense already exists in the data store.");
 
-            var merchant = DataContext
+            var merchant = Context
                 .Query<Merchant>()
                 .SingleOrDefault(p => p.Name.ToLower() == command.Merchant.ToLower());
             if (merchant == null)
@@ -49,7 +49,7 @@ namespace Labs.Expenses.W.Domain.Handlers
                     Name = command.Merchant,
                 };
 
-                DataContext.Add(merchant);
+                Context.Add(merchant);
             }
 
             expense = new Expense
@@ -63,15 +63,14 @@ namespace Labs.Expenses.W.Domain.Handlers
                 MerchantId = merchant.Id,
             };
 
-            DataContext.Add(expense);
+            Context.Add(expense);
 
-            var added = new ExpenseAddedEvent
+            Bus.Publish(new ExpenseAddedEvent
             {
                 TenantId = command.TenantId,
                 CorrelationId = command.CommandId,
                 Timestamp = SystemTime.Now(),
-            };
-            EventBus.Publish(added);
+            });
         }
     }
 }
