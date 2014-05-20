@@ -20,26 +20,36 @@ namespace Labs.Expenses.W.Tests.Handlers
             var service = Locator.Get<IExpensesFacade>();
             var bus = Locator.Get<IBus>();
 
-            var date = SystemTime.Now();
+            var time = SystemTime.Now();
+            var contextId = Guid.NewGuid();
+            var tenantId = SystemTenant.Current().Id;
             var expenseId = Guid.NewGuid();
-            var rootId = Guid.NewGuid();
 
             var addId = Guid.NewGuid();
-            var add = new AddExpenseCommand(rootId, addId)
+            var add = new AddExpenseCommand
             {
+                ContextId = contextId,
+                TenantId = tenantId,
+                CommandId = addId,
                 ExpenseId = expenseId,
-                PurchaseDate = date,
+                Timestamp = time,
+                PurchaseDate = time.Date,
                 Merchant = "Amazon",
                 Amount = 100,
                 Vat = 19,
+                
             };
             service.AddExpense(add);
 
             var modifyId = Guid.NewGuid();
-            var modify = new ModifyExpenseCommand(rootId, modifyId)
+            var modify = new ModifyExpenseCommand
             {
+                ContextId = contextId,
+                CommandId = modifyId,
+                TenantId = tenantId,
                 ExpenseId = expenseId,
-                PurchaseDate = date,
+                Timestamp = time.AddHours(1),
+                PurchaseDate = time.Date,
                 Merchant = "Amazon",
                 Amount = 101,
                 Vat = 21,

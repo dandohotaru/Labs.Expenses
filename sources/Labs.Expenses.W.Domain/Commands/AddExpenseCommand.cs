@@ -1,18 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using Labs.Expenses.W.Domain.Common;
-using Labs.Expenses.W.Domain.Values;
 
 namespace Labs.Expenses.W.Domain.Commands
 {
     public class AddExpenseCommand : Command
     {
-        public AddExpenseCommand(Guid rootId, Guid commandId)
-            : base(rootId, commandId)
-        {
-            PolicyId = SystemPolicy.Current().Id;
-        }
-
         [Required]
         public Guid ExpenseId { get; set; }
 

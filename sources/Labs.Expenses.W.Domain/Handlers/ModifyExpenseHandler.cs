@@ -5,6 +5,7 @@ using Labs.Expenses.W.Domain.Commands;
 using Labs.Expenses.W.Domain.Common;
 using Labs.Expenses.W.Domain.Entities;
 using Labs.Expenses.W.Domain.Events;
+using Labs.Expenses.W.Domain.Values;
 
 namespace Labs.Expenses.W.Domain.Handlers
 {
@@ -58,12 +59,12 @@ namespace Labs.Expenses.W.Domain.Handlers
             expense.Vat = command.Vat;
             expense.MerchantId = merchant.Id;
 
-            Session.Save();
-
-            Changes.Enqueue(new ExpenseModifiedEvent(command.RootId, command.CommandId)
+            Changes.Enqueue(new ExpenseModifiedEvent
             {
+                ContextId = command.ContextId,
                 TenantId = command.TenantId,
                 CorrelationId = command.CommandId,
+                Timestamp = SystemTime.Now(),
             });
         }
     }

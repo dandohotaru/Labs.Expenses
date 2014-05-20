@@ -17,14 +17,19 @@ namespace Labs.Expenses.W.Tests.Handlers
         public void ShouldAddExpenseWhenExpenseIsNew()
         {
             // Given
-            var date = SystemTime.Now();
-            var rootId = Guid.NewGuid();
+            var time = SystemTime.Now();
+            var contextId = Guid.NewGuid();
+            var tenantId = SystemTenant.Current().Id;
             var commandId = Guid.NewGuid();
             var expenseId = Guid.NewGuid();
-            var command = new AddExpenseCommand(rootId, commandId)
+            var command = new AddExpenseCommand
             {
+                ContextId = contextId,
+                TenantId = tenantId,
+                CommandId = commandId,
                 ExpenseId = expenseId,
-                PurchaseDate = date,
+                PurchaseDate = time.Date,
+                Timestamp = time,
                 Merchant = "Amazon",
                 Amount = 100,
                 Vat = 19,

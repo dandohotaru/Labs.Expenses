@@ -6,11 +6,6 @@ namespace Labs.Expenses.W.Domain.Commands
 {
     public class RenameMerchantCommand : Command
     {
-        public RenameMerchantCommand(Guid rootId, Guid commandId)
-            : base(rootId, commandId)
-        {
-        }
-
         [Required]
         public Guid MerchantId { get; set; }
 

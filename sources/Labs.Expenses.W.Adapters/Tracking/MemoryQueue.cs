@@ -18,23 +18,23 @@ namespace Labs.Expenses.W.Adapters.Tracking
         public void Enqueue(IEvent e)
         {
             Queue<IEvent> events;
-            var exists = Items.TryGetValue(e.RootId, out events);
+            var exists = Items.TryGetValue(e.ContextId, out events);
             if (!exists)
             {
                 events = new Queue<IEvent>();
-                Items[e.RootId] = events;
+                Items[e.ContextId] = events;
             }
 
             events.Enqueue(e);
         }
 
-        public IEnumerable<IEvent> Dequeue(Guid rootId)
+        public IEnumerable<IEvent> Dequeue(Guid contextId)
         {
             Queue<IEvent> events;
-            var exists = Items.TryGetValue(rootId, out events);
+            var exists = Items.TryGetValue(contextId, out events);
             if (!exists)
             {
-                var message = string.Format("There were no items found for key {0}.", rootId);
+                var message = string.Format("There were no items found for key {0}.", contextId);
                 throw new Exception(message);
             }
 

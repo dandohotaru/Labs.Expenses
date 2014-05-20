@@ -6,11 +6,6 @@ namespace Labs.Expenses.W.Domain.Commands
 {
     public class ModifyExpenseCommand : Command
     {
-        public ModifyExpenseCommand(Guid rootId, Guid commandId)
-            : base(rootId, commandId)
-        {
-        }
-
         [Required]
         public Guid ExpenseId { get; set; }
 

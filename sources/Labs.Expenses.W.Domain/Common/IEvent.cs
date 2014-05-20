@@ -4,7 +4,7 @@ namespace Labs.Expenses.W.Domain.Common
 {
     public interface IEvent : IMessage
     {
-        Guid RootId { get; set; }
+        Guid ContextId { get; set; }
 
         Guid TenantId { get; set; }
 

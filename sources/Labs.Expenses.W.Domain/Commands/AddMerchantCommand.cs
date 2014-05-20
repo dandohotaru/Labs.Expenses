@@ -6,11 +6,6 @@ namespace Labs.Expenses.W.Domain.Commands
 {
     public class AddMerchantCommand : Command
     {
-        public AddMerchantCommand(Guid rootId, Guid commandId)
-            : base(rootId, commandId)
-        {
-        }
-
         [Required]
         public Guid MerchantId { get; set; }
 

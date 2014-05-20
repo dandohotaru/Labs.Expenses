@@ -8,6 +8,6 @@ namespace Labs.Expenses.W.Domain.Adapters
     {
         void Enqueue(IEvent e);
 
-        IEnumerable<IEvent> Dequeue(Guid rootId);
+        IEnumerable<IEvent> Dequeue(Guid contextId);
     }
 }

@@ -1,15 +1,20 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Labs.Expenses.W.Domain.Common
 {
     public interface ICommand : IMessage
     {
-        Guid RootId { get; }
+        [Required]
+        Guid ContextId { get; set; }
 
-        Guid CommandId { get; }
+        [Required]
+        Guid CommandId { get; set; }
 
-        Guid TenantId { get; }
+        [Required]
+        Guid TenantId { get; set; }
 
-        DateTimeOffset Timestamp { get; }
+        [Required]
+        DateTimeOffset Timestamp { get; set; }
     }
 }

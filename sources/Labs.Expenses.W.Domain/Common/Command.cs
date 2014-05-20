@@ -1,34 +1,20 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using Labs.Expenses.W.Domain.Values;
 
 namespace Labs.Expenses.W.Domain.Common
 {
     public abstract class Command : ICommand
     {
-        protected Command(Guid rootId, Guid commandId)
-        {
-            if (rootId == default(Guid))
-                throw new ArgumentException("RootId");
-            if (commandId == default(Guid))
-                throw new ArgumentException("commandId");
-
-            RootId = rootId;
-            CommandId = commandId;
-            TenantId = SystemTenant.Current().Id;
-            Timestamp = SystemTime.Now();
-        }
+        [Required]
+        public Guid ContextId { get; set; }
 
         [Required]
-        public Guid RootId { get; private set; }
+        public Guid CommandId { get; set; }
 
         [Required]
-        public Guid CommandId { get; protected set; }
+        public Guid TenantId { get; set; }
 
         [Required]
-        public Guid TenantId { get; protected set; }
-
-        [Required]
-        public DateTimeOffset Timestamp { get; protected set; }
+        public DateTimeOffset Timestamp { get; set; }
     }
 }
