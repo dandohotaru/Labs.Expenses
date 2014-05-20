@@ -6,8 +6,8 @@ namespace Labs.Expenses.W.Domain.Commands
 {
     public class RemoveExpenseCommand : Command
     {
-        public RemoveExpenseCommand(Guid commandId, Guid tenantId)
-            : base(tenantId, commandId)
+        public RemoveExpenseCommand(Guid rootId, Guid commandId)
+            : base(rootId, commandId)
         {
         }
 

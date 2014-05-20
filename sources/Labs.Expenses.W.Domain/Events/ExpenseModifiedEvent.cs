@@ -3,9 +3,9 @@ using Labs.Expenses.W.Domain.Common;
 
 namespace Labs.Expenses.W.Domain.Events
 {
-    public class ExpenseAddedEvent : Event
+    public class ExpenseModifiedEvent : Event
     {
-        public ExpenseAddedEvent(Guid rootId, Guid correlationId) 
+        public ExpenseModifiedEvent(Guid rootId, Guid correlationId) 
             : base(rootId, correlationId)
         {
         }

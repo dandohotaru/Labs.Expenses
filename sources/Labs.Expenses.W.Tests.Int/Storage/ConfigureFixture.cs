@@ -16,7 +16,7 @@ namespace Labs.Expenses.W.Tests.Storage
         public void ShouldCreateDatabaseIfNotExisting()
         {
             // Given
-            var builder = Locator.Get<Func<IDataContext>>();
+            var builder = Locator.Get<Func<ISession>>();
             using (var context = builder())
             {
                 var tagId = Guid.NewGuid();

@@ -3,10 +3,8 @@ using Labs.Expenses.W.Domain.Common;
 
 namespace Labs.Expenses.W.Domain.Adapters
 {
-    public interface IEventBus
+    public interface ISubscriber
     {
-        void Publish<TEvent>(TEvent e) where TEvent : IEvent;
-
         void Subscribe<TEvent>(Action<TEvent> action) where TEvent : IEvent;
     }
 }

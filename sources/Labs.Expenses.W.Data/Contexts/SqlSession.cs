@@ -10,15 +10,15 @@ using Labs.Expenses.W.Domain.Entities;
 
 namespace Labs.Expenses.W.Data.Contexts
 {
-    public class SqlContext : DbContext, IDataContext
+    public class SqlSession : DbContext, ISession
     {
-        static SqlContext()
+        static SqlSession()
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<SqlContext>());
+            Database.SetInitializer(new CreateDatabaseIfNotExists<SqlSession>());
         }
 
-        public SqlContext()
-            : base("SqlContext")
+        public SqlSession()
+            : base("Sql")
         {
             Configuration.LazyLoadingEnabled = false;
             Configuration.ProxyCreationEnabled = false;

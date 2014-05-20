@@ -4,11 +4,11 @@ using System.Linq;
 using Labs.Expenses.W.Domain.Adapters;
 using Labs.Expenses.W.Domain.Common;
 
-namespace Labs.Expenses.W.Adapters.Queues
+namespace Labs.Expenses.W.Adapters.Tracking
 {
-    public class MemoryEventBus : IEventBus
+    public class MemoryBus : IBus
     {
-        public MemoryEventBus()
+        public MemoryBus()
         {
             Handlers = new Dictionary<Type, List<Action<IEvent>>>();
         }
@@ -18,7 +18,7 @@ namespace Labs.Expenses.W.Adapters.Queues
         public void Publish<TEvent>(TEvent e)
             where TEvent : IEvent
         {
-            var eventType = typeof (TEvent);
+            var eventType = e.GetType();
 
             var actions = from handler in Handlers
                 where handler.Key.IsAssignableFrom(eventType)

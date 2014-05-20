@@ -8,9 +8,9 @@ using Labs.Expenses.W.Domain.Events;
 
 namespace Labs.Expenses.W.Domain.Handlers
 {
-    public class AddExpenseHandler : IHandler<AddExpenseCommand>
+    public class ModifyExpenseHandler : IHandler<ModifyExpenseCommand>
     {
-        public AddExpenseHandler(ISession session, IQueue changes)
+        public ModifyExpenseHandler(ISession session, IQueue changes)
         {
             if (session == null)
                 throw new ArgumentNullException("session");
@@ -25,16 +25,18 @@ namespace Labs.Expenses.W.Domain.Handlers
 
         protected IQueue Changes { get; private set; }
 
-        public void Execute(AddExpenseCommand command)
+        public void Execute(ModifyExpenseCommand command)
         {
             if (command.PurchaseDate == null)
                 throw new ArgumentException("command.PurchaseDate is required");
             if (command.Amount == null)
                 throw new ArgumentException("command.Amount is required");
+            if (command.Merchant == null)
+                throw new ArgumentException("command.Merchant is required");
 
             var expense = Session.Find<Expense>(command.ExpenseId);
-            if (expense != null)
-                throw new Exception("The provided expense already exists in the data store.");
+            if (expense == null)
+                throw new Exception("The provided expense does not exist in the data store.");
 
             var merchant = Session
                 .Query<Merchant>()
@@ -51,21 +53,14 @@ namespace Labs.Expenses.W.Domain.Handlers
                 Session.Add(merchant);
             }
 
-            expense = new Expense
-            {
-                Id = command.ExpenseId,
-                TenantId = command.TenantId,
-                PolicyId = command.PolicyId,
-                Date = command.PurchaseDate.Value,
-                Amount = command.Amount.Value,
-                Vat = command.Vat,
-                MerchantId = merchant.Id,
-            };
+            expense.Date = command.PurchaseDate.Value;
+            expense.Amount = command.Amount.Value;
+            expense.Vat = command.Vat;
+            expense.MerchantId = merchant.Id;
 
-            Session.Add(expense);
             Session.Save();
 
-            Changes.Enqueue(new ExpenseAddedEvent(command.RootId, command.CommandId)
+            Changes.Enqueue(new ExpenseModifiedEvent(command.RootId, command.CommandId)
             {
                 TenantId = command.TenantId,
                 CorrelationId = command.CommandId,

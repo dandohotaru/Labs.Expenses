@@ -5,7 +5,7 @@ using Labs.Expenses.W.Domain.Common;
 
 namespace Labs.Expenses.W.Domain.Adapters
 {
-    public interface IDataContext : IDisposable
+    public interface ISession : IDisposable
     {
         IQueryable<TEntity> Query<TEntity>() where TEntity : class, IEntity;
 

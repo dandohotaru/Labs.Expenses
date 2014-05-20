@@ -6,22 +6,21 @@ namespace Labs.Expenses.W.Domain.Common
 {
     public abstract class Command : ICommand
     {
-        private Command()
+        protected Command(Guid rootId, Guid commandId)
         {
+            if (rootId == default(Guid))
+                throw new ArgumentException("RootId");
+            if (commandId == default(Guid))
+                throw new ArgumentException("commandId");
+
+            RootId = rootId;
+            CommandId = commandId;
+            TenantId = SystemTenant.Current().Id;
             Timestamp = SystemTime.Now();
         }
 
-        protected Command(Guid tenantId, Guid commandId)
-            : this()
-        {
-            if (commandId == default(Guid))
-                throw new ArgumentException("commandId");
-            if (tenantId == default(Guid))
-                throw new ArgumentException("tenantId");
-
-            CommandId = commandId;
-            TenantId = tenantId;
-        }
+        [Required]
+        public Guid RootId { get; private set; }
 
         [Required]
         public Guid CommandId { get; protected set; }

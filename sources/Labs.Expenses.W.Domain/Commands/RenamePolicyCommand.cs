@@ -6,8 +6,8 @@ namespace Labs.Expenses.W.Domain.Commands
 {
     public class RenamePolicyCommand : Command
     {
-        public RenamePolicyCommand(Guid commandId, Guid tenantId)
-            : base(tenantId, commandId)
+        public RenamePolicyCommand(Guid rootId, Guid commandId)
+            : base(rootId, commandId)
         {
         }
 

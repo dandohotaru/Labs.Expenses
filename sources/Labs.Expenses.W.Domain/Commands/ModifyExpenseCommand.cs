@@ -6,20 +6,23 @@ namespace Labs.Expenses.W.Domain.Commands
 {
     public class ModifyExpenseCommand : Command
     {
-        public ModifyExpenseCommand(Guid commandId, Guid tenantId)
-            : base(tenantId, commandId)
+        public ModifyExpenseCommand(Guid rootId, Guid commandId)
+            : base(rootId, commandId)
         {
         }
 
         [Required]
         public Guid ExpenseId { get; set; }
-        
+
+        [Required]
         public DateTimeOffset? PurchaseDate { get; set; }
 
+        [Required]
         public string Merchant { get; set; }
 
         public string Description { get; set; }
 
+        [Required]
         public decimal? Amount { get; set; }
 
         public decimal? Vat { get; set; }

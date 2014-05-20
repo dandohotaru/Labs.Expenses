@@ -1,8 +1,8 @@
 ﻿using System;
+using Labs.Expenses.W.Domain;
 using Labs.Expenses.W.Domain.Adapters;
 using Labs.Expenses.W.Domain.Commands;
 using Labs.Expenses.W.Domain.Events;
-using Labs.Expenses.W.Domain.Handlers;
 using Labs.Expenses.W.Domain.Values;
 using Labs.Expenses.W.Tests.Common;
 using Ninject;
@@ -14,18 +14,16 @@ namespace Labs.Expenses.W.Tests.Handlers
     public class AddExpenseFixture : Fixture
     {
         [Test]
-        public void ShouldAddExpenseWhenCommandIsValid()
+        public void ShouldAddExpenseWhenExpenseIsNew()
         {
             // Given
             var date = SystemTime.Now();
-            var tenantId = SystemTenant.Current().Id;
-            var policyId = SystemPolicy.Current().Id;
+            var rootId = Guid.NewGuid();
             var commandId = Guid.NewGuid();
             var expenseId = Guid.NewGuid();
-            var command = new AddExpenseCommand(tenantId, commandId)
+            var command = new AddExpenseCommand(rootId, commandId)
             {
                 ExpenseId = expenseId,
-                PolicyId = policyId,
                 PurchaseDate = date,
                 Merchant = "Amazon",
                 Amount = 100,
@@ -34,18 +32,14 @@ namespace Labs.Expenses.W.Tests.Handlers
 
             // When
             var expect = false;
-            var bus = Locator.Get<IEventBus>();
-            bus.Subscribe<ExpenseAddedEvent>(e => expect = true);
-            var builder = Locator.Get<Func<IDataContext>>();
-            using (var context = builder())
-            {
-                var handler = new AddExpenseHandler(context, bus);
-                handler.Execute(command);
-                context.Save();
+            var bus = Locator.Get<IBus>();
+            bus.Subscribe<ExpenseAddedEvent>(e => expect = e.CorrelationId == commandId);
 
-                // Then
-                Assert.That(expect, Is.True);
-            }
+            var service = Locator.Get<IExpensesFacade>();
+            service.AddExpense(command);
+
+            // Then
+            Assert.That(expect, Is.True);
         }
     }
 }

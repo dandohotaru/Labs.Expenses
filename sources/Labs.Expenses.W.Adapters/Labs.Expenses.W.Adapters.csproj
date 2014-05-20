@@ -43,7 +43,8 @@
       <Link>Properties\SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queues\MemoryEventBus.cs" />
+    <Compile Include="Tracking\MemoryQueue.cs" />
+    <Compile Include="Tracking\MemoryBus.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Labs.Expenses.W.Domain\Labs.Expenses.W.Domain.csproj">
