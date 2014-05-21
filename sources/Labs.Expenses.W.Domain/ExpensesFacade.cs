@@ -37,8 +37,7 @@ namespace Labs.Expenses.W.Domain
                 handler.Execute(command);
                 session.Save();
 
-                var events = changes.Dequeue().ToList();
-                events.ForEach(e => Publisher.Publish(e));
+                Publisher.Publish(changes.Dequeue());
             }
         }
 

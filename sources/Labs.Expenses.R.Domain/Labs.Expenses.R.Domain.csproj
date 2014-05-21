@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,14 +41,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\ISession.cs" />
+    <Compile Include="Common\IHandler.cs" />
+    <Compile Include="Common\IMessage.cs" />
+    <Compile Include="Common\Query.cs" />
     <Compile Include="Common\Entity.cs" />
+    <Compile Include="Common\IQuery.cs" />
     <Compile Include="Common\IEntity.cs" />
+    <Compile Include="Common\IResult.cs" />
+    <Compile Include="Common\Result.cs" />
     <Compile Include="Entities\Expense.cs" />
     <Compile Include="Entities\Merchant.cs" />
     <Compile Include="Entities\Policy.cs" />
     <Compile Include="Entities\Tag.cs" />
+    <Compile Include="ISearchFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\FindExpensesForTimespan\ExpenseModel.cs" />
+    <Compile Include="Reports\FindExpensesForTimespan\FindExpensesForTimespanHandler.cs" />
+    <Compile Include="Reports\FindExpensesForTimespan\FindExpensesForTimespanQuery.cs" />
+    <Compile Include="Reports\FindExpensesForTimespan\FindExpensesForTimespanResult.cs" />
+    <Compile Include="SearchFacade.cs" />
+    <Compile Include="Values\SystemTime.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

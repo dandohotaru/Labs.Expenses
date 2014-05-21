@@ -38,6 +38,18 @@ namespace Labs.Expenses.R.Data.Contexts
         protected override void OnModelCreating(DbModelBuilder builder)
         {
             builder.Conventions.Add(new EntityConventions());
+
+            builder.Entity<Expense>().HasRequired(p => p.Merchant)
+               .WithMany()
+               .HasForeignKey(p => p.MerchantId);
+            builder.Entity<Expense>().HasMany(p => p.Tags)
+                .WithMany()
+                .Map(m =>
+                {
+                    m.MapLeftKey("ExpenseId");
+                    m.MapRightKey("TagId");
+                    m.ToTable("ExpenseTag", "expenses");
+                });
         }
     }
 }

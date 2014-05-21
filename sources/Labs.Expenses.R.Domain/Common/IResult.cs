@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace Labs.Expenses.W.Domain.Common
+namespace Labs.Expenses.R.Domain.Common
 {
     public interface IResult : IMessage
     {
-        Guid CommandId { get; }
+        Guid QueryId { get; }
 
         Guid TenantId { get; }
 
