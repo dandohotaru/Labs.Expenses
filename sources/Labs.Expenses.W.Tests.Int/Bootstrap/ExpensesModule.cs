@@ -5,6 +5,7 @@ using Labs.Expenses.W.Domain;
 using Labs.Expenses.W.Domain.Adapters;
 using Labs.Expenses.W.Domain.Common;
 using Labs.Expenses.W.Domain.Values;
+using Ninject;
 using Ninject.Modules;
 
 namespace Labs.Expenses.W.Tests.Bootstrap
@@ -19,6 +20,8 @@ namespace Labs.Expenses.W.Tests.Bootstrap
 
             // Adapters
             Bind<IBus>().To<MemoryBus>().InSingletonScope();
+            Bind<ISubscriber>().ToMethod(p => p.Kernel.Get<IBus>());
+            Bind<IPublisher>().ToMethod(p => p.Kernel.Get<IBus>());
             Bind<Func<IQueue>>().ToMethod(queue => () => new MemoryQueue());
             Bind<Func<ISession>>().ToMethod(context => () => new SqlSession());
 

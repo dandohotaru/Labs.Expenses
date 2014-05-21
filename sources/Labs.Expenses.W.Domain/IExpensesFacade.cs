@@ -7,5 +7,7 @@ namespace Labs.Expenses.W.Domain
         void AddExpense(AddExpenseCommand command);
 
         void ModifyExpense(ModifyExpenseCommand command);
+
+        void RemoveExpense(RemoveExpenseCommand command);
     }
 }

@@ -85,9 +85,11 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entities\Tag.cs" />
+    <Compile Include="Events\ExpenseRemovedEvent.cs" />
     <Compile Include="Events\ExpenseModifiedEvent.cs" />
     <Compile Include="Events\ExpenseAddedEvent.cs" />
     <Compile Include="ExpensesFacade.cs" />
+    <Compile Include="Handlers\RemoveExpenseHandler.cs" />
     <Compile Include="Handlers\ModifyExpenseHandler.cs" />
     <Compile Include="Handlers\AddExpenseHandler.cs" />
     <Compile Include="IExpensesFacade.cs" />

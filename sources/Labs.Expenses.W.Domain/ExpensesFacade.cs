@@ -8,25 +8,25 @@ namespace Labs.Expenses.W.Domain
 {
     public class ExpensesFacade : IExpensesFacade
     {
-        public ExpensesFacade(Func<ISession> sessionFactory, Func<IQueue> changesFactory, IBus bus)
+        public ExpensesFacade(Func<ISession> sessionFactory, Func<IQueue> changesFactory, IPublisher publisher)
         {
             if (sessionFactory == null)
                 throw new ArgumentNullException("sessionFactory");
             if (changesFactory == null)
                 throw new ArgumentNullException("changesFactory");
-            if (bus == null)
-                throw new ArgumentNullException("bus");
+            if (publisher == null)
+                throw new ArgumentNullException("publisher");
 
             SessionFactory = sessionFactory;
             ChangesFactory = changesFactory;
-            Bus = bus;
+            Publisher = publisher;
         }
 
         protected Func<ISession> SessionFactory { get; private set; }
 
         protected Func<IQueue> ChangesFactory { get; private set; }
 
-        protected IBus Bus { get; private set; }
+        protected IPublisher Publisher { get; private set; }
 
         public void AddExpense(AddExpenseCommand command)
         {
@@ -38,7 +38,7 @@ namespace Labs.Expenses.W.Domain
                 session.Save();
 
                 var events = changes.Dequeue().ToList();
-                events.ForEach(e => Bus.Publish(e));
+                events.ForEach(e => Publisher.Publish(e));
             }
         }
 
@@ -51,7 +51,20 @@ namespace Labs.Expenses.W.Domain
                 handler.Execute(command);
                 session.Save();
 
-                Bus.Publish(changes.Dequeue());
+                Publisher.Publish(changes.Dequeue());
+            }
+        }
+
+        public void RemoveExpense(RemoveExpenseCommand command)
+        {
+            using (var session = SessionFactory())
+            using (var changes = ChangesFactory())
+            {
+                var handler = new RemoveExpenseHandler(session, changes);
+                handler.Execute(command);
+                session.Save();
+
+                Publisher.Publish(changes.Dequeue());
             }
         }
     }
