@@ -5,9 +5,5 @@ namespace Labs.Expenses.W.Data.Mappings
 {
     public class PolicyMap : EntityTypeConfiguration<Policy>
     {
-        public PolicyMap()
-        {
-            ToTable("Policy", "expenses");
-        }
     }
 }

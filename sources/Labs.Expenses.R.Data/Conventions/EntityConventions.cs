@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace Labs.Expenses.W.Data.Conventions
+namespace Labs.Expenses.R.Data.Conventions
 {
     public class EntityConventions : Convention
     {

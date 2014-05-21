@@ -7,8 +7,6 @@ namespace Labs.Expenses.W.Data.Mappings
     {
         public ExpenseMap()
         {
-            ToTable("Expense", "expenses");
-
             HasRequired(p => p.Merchant)
                 .WithMany()
                 .HasForeignKey(p => p.MerchantId);

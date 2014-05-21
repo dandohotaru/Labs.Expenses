@@ -79,14 +79,14 @@ namespace Labs.Expenses.W.Data.Contexts
             SaveChanges();
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        protected override void OnModelCreating(DbModelBuilder builder)
         {
-            modelBuilder.Conventions.Add(new EntityConventions());
+            builder.Conventions.Add(new EntityConventions());
 
-            modelBuilder.Configurations.Add(new ExpenseMap());
-            modelBuilder.Configurations.Add(new MerchantMap());
-            modelBuilder.Configurations.Add(new PolicyMap());
-            modelBuilder.Configurations.Add(new TagMap());
+            builder.Configurations.Add(new ExpenseMap());
+            builder.Configurations.Add(new MerchantMap());
+            builder.Configurations.Add(new PolicyMap());
+            builder.Configurations.Add(new TagMap());
         }
     }
 }

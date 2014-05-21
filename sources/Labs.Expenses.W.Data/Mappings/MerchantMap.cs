@@ -5,9 +5,5 @@ namespace Labs.Expenses.W.Data.Mappings
 {
     public class MerchantMap : EntityTypeConfiguration<Merchant>
     {
-        public MerchantMap()
-        {
-            ToTable("Merchant", "expenses");
-        }
     }
 }
