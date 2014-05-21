@@ -25,7 +25,7 @@ namespace Labs.Expenses.R.Tests.Storage
                     .Count();
 
                 // Then
-                Assert.That(count, Is.GreaterThan(0));
+                Assert.That(count, Is.GreaterThanOrEqualTo(0));
             }
         }
     }

@@ -10,7 +10,7 @@ namespace Labs.Expenses.W.Data.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SqlSession session)
+        protected override void Seed(SqlSession context)
         {
             //  This method will be called after migrating to the latest version.
 

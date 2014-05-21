@@ -2,7 +2,7 @@ using System.Data.Entity.Migrations;
 
 namespace Labs.Expenses.W.Data.Migrations
 {
-    public partial class InitialSetup : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -15,7 +15,7 @@ namespace Labs.Expenses.W.Data.Migrations
                     MerchantId = c.Guid(nullable: false),
                     Date = c.DateTimeOffset(nullable: false, precision: 7),
                     Amount = c.Decimal(nullable: false, precision: 18, scale: 2),
-                    Vat = c.Decimal(nullable: false, precision: 18, scale: 2),
+                    Vat = c.Decimal(precision: 18, scale: 2),
                     TenantId = c.Guid(nullable: false),
                     Version = c.Binary(nullable: false, fixedLength: true, timestamp: true, storeType: "rowversion"),
                 })

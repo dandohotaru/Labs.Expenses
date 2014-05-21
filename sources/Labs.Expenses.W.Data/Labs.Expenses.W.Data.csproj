@@ -55,13 +55,9 @@
     <Compile Include="Mappings\MerchantMap.cs" />
     <Compile Include="Mappings\PolicyMap.cs" />
     <Compile Include="Mappings\TagMap.cs" />
-    <Compile Include="Migrations\201404270149286_InitialSetup.cs" />
-    <Compile Include="Migrations\201404270149286_InitialSetup.Designer.cs">
-      <DependentUpon>201404270149286_InitialSetup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201404271333181_TuningTheModel.cs" />
-    <Compile Include="Migrations\201404271333181_TuningTheModel.Designer.cs">
-      <DependentUpon>201404271333181_TuningTheModel.cs</DependentUpon>
+    <Compile Include="Migrations\201405211301232_Initial.cs" />
+    <Compile Include="Migrations\201405211301232_Initial.Designer.cs">
+      <DependentUpon>201405211301232_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,11 +77,8 @@
     <Content Include="Migrations\Documentation.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201404270149286_InitialSetup.resx">
-      <DependentUpon>201404270149286_InitialSetup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201404271333181_TuningTheModel.resx">
-      <DependentUpon>201404271333181_TuningTheModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201405211301232_Initial.resx">
+      <DependentUpon>201405211301232_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
