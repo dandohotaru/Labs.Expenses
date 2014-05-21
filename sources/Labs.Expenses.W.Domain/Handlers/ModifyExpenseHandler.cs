@@ -61,7 +61,6 @@ namespace Labs.Expenses.W.Domain.Handlers
 
             Changes.Enqueue(new ExpenseModifiedEvent
             {
-                ContextId = command.ContextId,
                 TenantId = command.TenantId,
                 CorrelationId = command.CommandId,
                 Timestamp = SystemTime.Now(),

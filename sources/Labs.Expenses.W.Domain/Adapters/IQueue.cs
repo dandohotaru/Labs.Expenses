@@ -6,8 +6,8 @@ namespace Labs.Expenses.W.Domain.Adapters
 {
     public interface IQueue : IDisposable
     {
-        void Enqueue(IEvent e);
+        void Enqueue(IEvent message);
 
-        IEnumerable<IEvent> Dequeue(Guid contextId);
+        IEnumerable<IEvent> Dequeue();
     }
 }

@@ -6,9 +6,6 @@ namespace Labs.Expenses.W.Domain.Common
     public class Event : IEvent
     {
         [Required]
-        public Guid ContextId { get; set; }
-
-        [Required]
         public Guid CorrelationId { get; set; }
 
         [Required]

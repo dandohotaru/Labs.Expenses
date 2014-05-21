@@ -21,14 +21,12 @@ namespace Labs.Expenses.W.Tests.Handlers
             var bus = Locator.Get<IBus>();
 
             var time = SystemTime.Now();
-            var contextId = Guid.NewGuid();
             var tenantId = SystemTenant.Current().Id;
             var expenseId = Guid.NewGuid();
 
             var addId = Guid.NewGuid();
             var add = new AddExpenseCommand
             {
-                ContextId = contextId,
                 TenantId = tenantId,
                 CommandId = addId,
                 ExpenseId = expenseId,
@@ -44,7 +42,6 @@ namespace Labs.Expenses.W.Tests.Handlers
             var modifyId = Guid.NewGuid();
             var modify = new ModifyExpenseCommand
             {
-                ContextId = contextId,
                 CommandId = modifyId,
                 TenantId = tenantId,
                 ExpenseId = expenseId,

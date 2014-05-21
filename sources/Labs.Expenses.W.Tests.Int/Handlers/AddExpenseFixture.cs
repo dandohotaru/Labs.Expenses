@@ -18,13 +18,11 @@ namespace Labs.Expenses.W.Tests.Handlers
         {
             // Given
             var time = SystemTime.Now();
-            var contextId = Guid.NewGuid();
             var tenantId = SystemTenant.Current().Id;
             var commandId = Guid.NewGuid();
             var expenseId = Guid.NewGuid();
             var command = new AddExpenseCommand
             {
-                ContextId = contextId,
                 TenantId = tenantId,
                 CommandId = commandId,
                 ExpenseId = expenseId,

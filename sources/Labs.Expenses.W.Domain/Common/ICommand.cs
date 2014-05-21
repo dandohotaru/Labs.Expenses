@@ -6,9 +6,6 @@ namespace Labs.Expenses.W.Domain.Common
     public interface ICommand : IMessage
     {
         [Required]
-        Guid ContextId { get; set; }
-
-        [Required]
         Guid CommandId { get; set; }
 
         [Required]

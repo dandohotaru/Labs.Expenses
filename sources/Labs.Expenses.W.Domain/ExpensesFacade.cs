@@ -37,7 +37,7 @@ namespace Labs.Expenses.W.Domain
                 handler.Execute(command);
                 session.Save();
 
-                var events = changes.Dequeue(command.ContextId).ToList();
+                var events = changes.Dequeue().ToList();
                 events.ForEach(e => Bus.Publish(e));
             }
         }
@@ -51,8 +51,7 @@ namespace Labs.Expenses.W.Domain
                 handler.Execute(command);
                 session.Save();
 
-                var events = changes.Dequeue(command.ContextId).ToList();
-                events.ForEach(e => Bus.Publish(e));
+                Bus.Publish(changes.Dequeue());
             }
         }
     }
