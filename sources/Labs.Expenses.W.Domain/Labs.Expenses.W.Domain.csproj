@@ -70,7 +70,7 @@
     <Compile Include="Common\Entity.cs" />
     <Compile Include="Common\Event.cs" />
     <Compile Include="Common\ICommand.cs" />
-    <Compile Include="Common\IHandler.cs" />
+    <Compile Include="Common\IHandle.cs" />
     <Compile Include="Common\IPolicy.cs" />
     <Compile Include="Common\ITenant.cs" />
     <Compile Include="Adapters\ISession.cs" />

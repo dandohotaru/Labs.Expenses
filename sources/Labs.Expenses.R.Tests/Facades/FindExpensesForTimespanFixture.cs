@@ -6,7 +6,7 @@ using Labs.Expenses.R.Tests.Common;
 using Ninject;
 using NUnit.Framework;
 
-namespace Labs.Expenses.R.Tests.Services
+namespace Labs.Expenses.R.Tests.Facades
 {
     [TestFixture]
     public class FindExpensesForTimespanFixture : Fixture
@@ -27,7 +27,7 @@ namespace Labs.Expenses.R.Tests.Services
 
             // When
             var service = Locator.Get<ISearchFacade>();
-            var result = service.Find(query);
+            var result = service.Execute(query);
 
             // Then
             Assert.That(result, Is.Not.Null);

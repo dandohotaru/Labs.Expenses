@@ -9,7 +9,7 @@ using Labs.Expenses.W.Domain.Values;
 
 namespace Labs.Expenses.W.Domain.Handlers
 {
-    public class AddExpenseHandler : IHandler<AddExpenseCommand>
+    public class AddExpenseHandler : IHandle<AddExpenseCommand>
     {
         public AddExpenseHandler(ISession session, IQueue changes)
         {

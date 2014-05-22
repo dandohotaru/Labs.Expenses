@@ -8,7 +8,7 @@ using Labs.Expenses.W.Domain.Values;
 
 namespace Labs.Expenses.W.Domain.Handlers
 {
-    public class RemoveExpenseHandler : IHandler<RemoveExpenseCommand>
+    public class RemoveExpenseHandler : IHandle<RemoveExpenseCommand>
     {
         public RemoveExpenseHandler(ISession session, IQueue changes)
         {

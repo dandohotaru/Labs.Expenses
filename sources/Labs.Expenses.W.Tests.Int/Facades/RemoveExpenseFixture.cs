@@ -8,13 +8,13 @@ using Labs.Expenses.W.Tests.Common;
 using Ninject;
 using NUnit.Framework;
 
-namespace Labs.Expenses.W.Tests.Handlers
+namespace Labs.Expenses.W.Tests.Facades
 {
     [TestFixture]
-    public class ModifyExpenseFixture : Fixture
+    public class RemoveExpenseFixture : Fixture
     {
         [Test]
-        public void ShouldModifyExpenseWhenExpenseExists()
+        public void ShouldRemoveExpenseWhenExpenseExists()
         {
             // Given
             var service = Locator.Get<IExpensesFacade>();
@@ -37,25 +37,21 @@ namespace Labs.Expenses.W.Tests.Handlers
                 Vat = 19,
                 
             };
-            service.AddExpense(add);
+            service.Execute(add);
 
-            var modifyId = Guid.NewGuid();
-            var modify = new ModifyExpenseCommand
+            var removeId = Guid.NewGuid();
+            var remove = new RemoveExpenseCommand
             {
-                CommandId = modifyId,
-                TenantId = tenantId,
+                CommandId = removeId,
                 ExpenseId = expenseId,
+                TenantId = tenantId,
                 Timestamp = time.AddHours(1),
-                PurchaseDate = time.Date,
-                Merchant = "Amazon",
-                Amount = 101,
-                Vat = 21,
             };
 
             // When
             var expect = false;
-            bus.Subscribe<ExpenseModifiedEvent>(e => expect = e.CorrelationId == modifyId);
-            service.ModifyExpense(modify);
+            bus.Subscribe<ExpenseRemovedEvent>(e => expect = e.CorrelationId == removeId);
+            service.Execute(remove);
 
             // Then
             Assert.That(expect, Is.True);

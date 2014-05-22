@@ -6,7 +6,7 @@ using Labs.Expenses.R.Domain.Entities;
 
 namespace Labs.Expenses.R.Domain.Reports.FindExpensesForTimespan
 {
-    public class FindExpensesForTimespanHandler : IHandler<FindExpensesForTimespanQuery, FindExpensesForTimespanResult>
+    public class FindExpensesForTimespanHandler : IHandle<FindExpensesForTimespanQuery, FindExpensesForTimespanResult>
     {
         public FindExpensesForTimespanHandler(ISession session)
         {

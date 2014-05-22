@@ -63,9 +63,9 @@
     <Compile Include="Common\Fixture.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Handlers\RemoveExpenseFixture.cs" />
-    <Compile Include="Handlers\ModifyExpenseFixture.cs" />
-    <Compile Include="Handlers\AddExpenseFixture.cs" />
+    <Compile Include="Facades\RemoveExpenseFixture.cs" />
+    <Compile Include="Facades\ModifyExpenseFixture.cs" />
+    <Compile Include="Facades\AddExpenseFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Storage\ConfigureFixture.cs" />
   </ItemGroup>

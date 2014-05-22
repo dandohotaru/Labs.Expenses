@@ -16,7 +16,7 @@ namespace Labs.Expenses.R.Domain
 
         protected Func<ISession> SessionFactory { get; private set; }
 
-        public FindExpensesForTimespanResult Find(FindExpensesForTimespanQuery query)
+        public FindExpensesForTimespanResult Execute(FindExpensesForTimespanQuery query)
         {
             using (var session = SessionFactory())
             {

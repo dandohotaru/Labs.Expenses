@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Labs.Expenses.W.Domain.Adapters;
 using Labs.Expenses.W.Domain.Commands;
 using Labs.Expenses.W.Domain.Handlers;
@@ -28,7 +27,7 @@ namespace Labs.Expenses.W.Domain
 
         protected IPublisher Publisher { get; private set; }
 
-        public void AddExpense(AddExpenseCommand command)
+        public void Execute(AddExpenseCommand command)
         {
             using (var session = SessionFactory())
             using (var changes = ChangesFactory())
@@ -41,7 +40,7 @@ namespace Labs.Expenses.W.Domain
             }
         }
 
-        public void ModifyExpense(ModifyExpenseCommand command)
+        public void Execute(ModifyExpenseCommand command)
         {
             using (var session = SessionFactory())
             using (var changes = ChangesFactory())
@@ -54,7 +53,7 @@ namespace Labs.Expenses.W.Domain
             }
         }
 
-        public void RemoveExpense(RemoveExpenseCommand command)
+        public void Execute(RemoveExpenseCommand command)
         {
             using (var session = SessionFactory())
             using (var changes = ChangesFactory())

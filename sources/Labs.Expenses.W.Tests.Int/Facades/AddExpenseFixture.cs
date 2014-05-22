@@ -8,7 +8,7 @@ using Labs.Expenses.W.Tests.Common;
 using Ninject;
 using NUnit.Framework;
 
-namespace Labs.Expenses.W.Tests.Handlers
+namespace Labs.Expenses.W.Tests.Facades
 {
     [TestFixture]
     public class AddExpenseFixture : Fixture
@@ -39,7 +39,7 @@ namespace Labs.Expenses.W.Tests.Handlers
             bus.Subscribe<ExpenseAddedEvent>(e => expect = e.CorrelationId == commandId);
 
             var service = Locator.Get<IExpensesFacade>();
-            service.AddExpense(command);
+            service.Execute(command);
 
             // Then
             Assert.That(expect, Is.True);

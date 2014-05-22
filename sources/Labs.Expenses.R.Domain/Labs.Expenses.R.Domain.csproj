@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\ISession.cs" />
-    <Compile Include="Common\IHandler.cs" />
+    <Compile Include="Common\IHandle.cs" />
     <Compile Include="Common\IMessage.cs" />
     <Compile Include="Common\Query.cs" />
     <Compile Include="Common\Entity.cs" />
