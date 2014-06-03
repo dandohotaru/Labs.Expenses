@@ -18,7 +18,7 @@ namespace Labs.Expenses.W.Tests.Facades
         {
             // Given
             var service = Locator.Get<IExpensesFacade>();
-            var bus = Locator.Get<IBus>();
+            var subscriber = Locator.Get<ISubscriber>();
 
             var time = SystemTime.Now();
             var tenantId = SystemTenant.Current().Id;
@@ -50,7 +50,7 @@ namespace Labs.Expenses.W.Tests.Facades
 
             // When
             var expect = false;
-            bus.Subscribe<ExpenseRemovedEvent>(e => expect = e.CorrelationId == removeId);
+            subscriber.Subscribe<ExpenseRemovedEvent>(e => expect = e.CorrelationId == removeId);
             service.Execute(remove);
 
             // Then

@@ -35,8 +35,8 @@ namespace Labs.Expenses.W.Tests.Facades
 
             // When
             var expect = false;
-            var bus = Locator.Get<IBus>();
-            bus.Subscribe<ExpenseAddedEvent>(e => expect = e.CorrelationId == commandId);
+            var subscriber = Locator.Get<ISubscriber>();
+            subscriber.Subscribe<ExpenseAddedEvent>(e => expect = e.CorrelationId == commandId);
 
             var service = Locator.Get<IExpensesFacade>();
             service.Execute(command);

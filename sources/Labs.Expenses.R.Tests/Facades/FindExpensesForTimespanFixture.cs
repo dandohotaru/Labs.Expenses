@@ -12,7 +12,7 @@ namespace Labs.Expenses.R.Tests.Facades
     public class FindExpensesForTimespanFixture : Fixture
     {
         [Test]
-        public void ShouldAddExpenseWhenExpenseIsNew()
+        public void ShouldFindExpensesWhenExpensesAreDefined()
         {
             // Given
             var time = SystemTime.Now();
@@ -31,6 +31,7 @@ namespace Labs.Expenses.R.Tests.Facades
 
             // Then
             Assert.That(result, Is.Not.Null);
+            Assert.That(result.Expenses, Is.Not.Empty);
         }
     }
 }
